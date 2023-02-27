@@ -18,7 +18,7 @@ export default class GetStart extends React.Component{
             <Text style={getstart_styles.continue_with_google_button_text}>Continue with Google</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={getstart_styles.continue_with_email_button}>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate("signup")} style={getstart_styles.continue_with_email_button}>
              
             <Text style={getstart_styles.continue_with_email_button_text}>Continue with email</Text>
             </TouchableOpacity>
@@ -28,7 +28,7 @@ export default class GetStart extends React.Component{
             <View style={getstart_styles.already_have_account}>
                 <Text style={{color:"#F9B4F6"}}>Already have an account?</Text>
 
-                <TouchableOpacity style={{left:3}}>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate("signin")} style={{left:3}}>
 
                 <Text style={{color:"#C900FF"}}>Sign in</Text>
                 </TouchableOpacity>
