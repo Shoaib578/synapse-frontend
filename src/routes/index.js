@@ -8,6 +8,7 @@ import Splash from '../screens/splash';
 import GetStart from '../screens/auth/getstart';
 import Signup from '../screens/auth/signup';
 import Signin from '../screens/auth/signin';
+import Home from '../screens/main/home';
 
 
 const Stack = createStackNavigator()
@@ -26,6 +27,7 @@ export default class Routes extends React.Component{
           <Stack.Screen name="splash" component={Splash} options={{ headerShown:false }} />
 
             <Stack.Screen name='auth' options={{headerShown:false}} component={this.authStack}/>
+            <Stack.Screen name='home' options={{headerStyle:{backgroundColor:'#21004B'},headerTintColor:"white"}} component={Home}/>
 
         </Stack.Navigator>
       </NavigationContainer>

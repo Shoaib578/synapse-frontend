@@ -2,6 +2,8 @@ import React from 'react'
 import {View,Text,Image,TouchableOpacity,Dimensions,Alert} from 'react-native'
 import getstart_styles from './style'
 import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 GoogleSignin.configure({
     webClientId: '1060778654030-pegmbg2ddvhj1cburnaacdgsbks2fo67.apps.googleusercontent.com',
   });
@@ -15,7 +17,11 @@ export default class GetStart extends React.Component{
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
             console.log(userInfo);
-            Alert.alert(userInfo.user.name)
+            await AsyncStorage.setItem('user',JSON.stringify(userInfo.user))
+            this.props.navigation.reset({
+              index: 0,
+              routes: [{ name: 'home' }]
+          });
           } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
               // user cancelled the login flow
@@ -32,7 +38,7 @@ export default class GetStart extends React.Component{
  
     render(){
         return <View style={getstart_styles.container}>
-            <Image source={require('../../../assets/Synapse.png')}  style={{marginTop:height/7}}/>
+            <Image source={require('../../../assets/Synapse.png')}  style={{marginTop:height/8}}/>
 
             <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"Corbel",color:"white",marginTop:20}}>The future of nightlife</Text>
             <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"Corbel",color:"white"}}>begins here</Text>

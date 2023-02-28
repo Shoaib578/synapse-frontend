@@ -1,6 +1,8 @@
 import React from 'react'
 import {View,Text,ScrollView,TouchableOpacity,Image,TextInput,Dimensions, Alert} from 'react-native'
 import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 GoogleSignin.configure({
     webClientId: '1060778654030-pegmbg2ddvhj1cburnaacdgsbks2fo67.apps.googleusercontent.com',
   });
@@ -14,7 +16,11 @@ export default class Signin extends React.Component{
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
             console.log(userInfo);
-           Alert.alert(userInfo.user.name)
+            await AsyncStorage.setItem('user',JSON.stringify(userInfo.user))
+            this.props.navigation.reset({
+              index: 0,
+              routes: [{ name: 'home' }]
+          });
           } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
               // user cancelled the login flow
