@@ -12,7 +12,10 @@ export default class Splash extends React.Component{
         });
     }
     componentDidMount(){
-        this.isLoggedIn()
+        setTimeout(()=>{
+            this.isLoggedIn()
+
+        },500)
     }
     render(){
         return <View style={splash_styles.container}>

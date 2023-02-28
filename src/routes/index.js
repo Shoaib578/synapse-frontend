@@ -1,8 +1,8 @@
 import React from 'react'
 import{View,Text} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator  } from '@react-navigation/native-stack';
-import { CardStyleInterpolators } from '@react-navigation/stack';
+
+import { CardStyleInterpolators,createStackNavigator } from '@react-navigation/stack';
 
 import Splash from '../screens/splash';
 import GetStart from '../screens/auth/getstart';
@@ -10,11 +10,11 @@ import Signup from '../screens/auth/signup';
 import Signin from '../screens/auth/signin';
 
 
-const Stack = createNativeStackNavigator()
+const Stack = createStackNavigator()
 export default class Routes extends React.Component{
     authStack = ()=>{
         return <Stack.Navigator screenOptions={{gestureEnabled:true,gestureDirection:'horizontal', cardStyleInterpolator:CardStyleInterpolators.forHorizontalIOS,}}>
-            <Stack.Screen name='getstart' options={{headerShown:false}} component={GetStart}/>
+            <Stack.Screen name='getstart' options={{headerShown:false,}} component={GetStart}/>
             <Stack.Screen name='signup' options={{headerTitle:"",headerTintColor:"#C900FF",headerTransparent:true}} component={Signup}/>
             <Stack.Screen name='signin' options={{headerTitle:"",headerTintColor:"#C900FF",headerTransparent:true}} component={Signin}/>
 

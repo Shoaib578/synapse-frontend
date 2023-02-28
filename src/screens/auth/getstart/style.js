@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet,Dimensions} from 'react-native'
+const height = Dimensions.get('window').height
 
  const getstart_styles = StyleSheet.create({
     container:{
@@ -8,13 +9,13 @@ import {StyleSheet} from 'react-native'
     },
     continue_with_google_button:{
         width:"85%",
-        padding:15,
+        padding:12,
         borderRadius:30,
         backgroundColor:"white",
         justifyContent:"center",
         alignItems:"center",
         flexDirection:"row",
-        marginTop:'35%'
+        marginTop:height/5
         
     },
     continue_with_google_button_text:{
@@ -24,7 +25,7 @@ import {StyleSheet} from 'react-native'
     },
     continue_with_email_button:{
         width:"85%",
-        padding:15,
+        padding:12,
         borderRadius:30,
         backgroundColor:"#C900FF",
         justifyContent:"center",
@@ -45,7 +46,7 @@ import {StyleSheet} from 'react-native'
     policy_text_container:{
         flexDirection:"row",
         alignSelf:"center",
-        marginTop:"17%"
+        top:height/6.5
     }
 })
 

@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet,Dimensions} from 'react-native'
+const height = Dimensions.get('window').height
 
 const signup_styles = StyleSheet.create({
     container:{
@@ -16,11 +17,13 @@ const signup_styles = StyleSheet.create({
         borderRadius:5,
         width:"85%",
         marginTop:30,
-        alignSelf:"center"
+        alignSelf:"center",
+        fontSize:13
+
     },
     signup_button:{
         width:"70%",
-        padding:15,
+        padding:12,
         borderRadius:30,
         backgroundColor:"#C900FF",
         justifyContent:"center",
@@ -31,12 +34,13 @@ const signup_styles = StyleSheet.create({
     signup_button_text:{
         color:"black",
         fontWeight:"bold",
+        fontSize:13
         
     },
     already_have_account:{
         alignSelf:'center',
         flexDirection:"row",
-        marginTop:60    
+        marginTop:30 
     }
 })
 

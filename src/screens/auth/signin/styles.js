@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native'
-
+import {StyleSheet,Dimensions} from 'react-native'
+const height = Dimensions.get('window').height
 const signin_styles = StyleSheet.create({
     container:{
         flex: 1,
@@ -16,11 +16,13 @@ const signin_styles = StyleSheet.create({
         borderRadius:5,
         width:"85%",
         marginTop:30,
-        alignSelf:"center"
+        alignSelf:"center",
+        fontSize:12
+
     },
-    signup_button:{
+    signin_button:{
         width:"70%",
-        padding:15,
+        padding:12,
         borderRadius:30,
         backgroundColor:"#C900FF",
         justifyContent:"center",
@@ -28,9 +30,11 @@ const signin_styles = StyleSheet.create({
         alignSelf:"center",
         marginTop:30
     },
-    signup_button_text:{
+    signin_button_text:{
         color:"black",
         fontWeight:"bold",
+        fontSize:13
+
         
     },
     dont_have_account:{
