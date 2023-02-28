@@ -46,7 +46,7 @@ const height = Dimensions.get('window').height
     policy_text_container:{
         flexDirection:"row",
         alignSelf:"center",
-        top:height/6.5
+        top:height/8
     }
 })
 
